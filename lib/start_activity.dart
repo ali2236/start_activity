@@ -10,8 +10,10 @@ void startActivity(String activityClassName, {String action}) async {
 
   Intent()
     ..setAction(action)
+    ..setData(Uri.parse('$packageName.$activityClassName'))
     ..putExtra(Extra.EXTRA_PACKAGE_NAME, packageName)
     ..addFlag(Flag.FLAG_ACTIVITY_NEW_TASK)
+    ..addFlag(Flag.FLAG_ACTIVITY_CLEAR_TASK)
     ..startActivity();
 }
 
